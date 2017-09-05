@@ -1,0 +1,17 @@
+/*
+IMPORTS ONLY!
+Do not write styles, mixins, or variables in this file.
+ */
+
+@import "./fonts.scss";
+@import "./base.scss";
+@import "./reset.scss";
+
+//Component Styles
+@import "./component/image.scss";
+@import "./component/home.scss";
+@import "./component/main-nav.scss";
+@import "./component/champion-list.scss";
+@import "./component/season-overview.scss";
+@import "./component/card.scss";
+@import "./component/busywait.scss";

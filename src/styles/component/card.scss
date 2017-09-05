@@ -1,0 +1,93 @@
+.card { 
+    padding: $contentPadding;   
+    border-radius: 2px; 
+    @include wrapShadow();
+
+    &.season-overview-card {
+        padding: 0;
+        transition: all .3s ease;
+        background: $white;
+
+        &:hover {
+            transform: scale(1.05);
+            @include worldChampBkd();
+            * {
+                color: $white;
+            }
+            .title {
+                @include darkOverlay();
+            }
+        }
+                
+        a {
+            display: block;
+            text-decoration: none;
+            color: $primaryTextColor;
+        }
+
+        .title,
+        .content {
+            padding: $contentPadding;
+        }
+
+        .title {            
+            background: $lightGrey;
+            border-bottom: 1px solid darken($lightGrey, 5%);
+        }
+    }
+
+    &.driver-profile-card {
+        .content {
+            p label {
+                font-weight: bold;
+            }
+        }
+        
+        .season-results {
+            margin-top: $contentPadding;
+            border-top: 1px solid $lightGrey;
+            padding-top: $contentPadding;
+        }
+    }
+
+    &.race-overview-card {
+        padding: 0;        
+
+        &.world-champ {
+            border: 1px solid $secondary;
+            background: url('/img/worldchampionbackdrop.png');
+            background-size: cover;
+
+            > .title,
+            > .content {
+                @include darkOverlay();
+                color: $white;
+            }
+        }
+
+        > .title {
+            padding: $contentPadding;
+            background: $lightGrey;            
+        }
+
+        > .content {
+            display: flex;
+            
+            .position-label {
+                padding: $contentPadding;
+                p {
+                    font-family: $heavyFont;
+                    font-size: $extraSmallFontSize;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .driver-profile-card {
+            box-shadow: none;
+            * {
+                font-size: $smallFontSize;
+            }
+        }
+    }
+}

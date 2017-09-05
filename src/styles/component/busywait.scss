@@ -1,0 +1,57 @@
+//fading circle inspired from spin kit
+//https://github.com/tobiasahlin/SpinKit/blob/master/scss/spinners/10-fading-circle.scss
+$spinkit-spinner-margin: 0;
+$spinkit-size: 100% !default;
+$spinkit-spinner-color: $primary !default;
+.ui-fading-circle {
+    $circleCount: 12;
+    $animationDuration: 1.2s;
+    margin: $spinkit-spinner-margin;
+    width: $spinkit-size;
+    height: $spinkit-size;
+    position: relative;
+    .ui-circle {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .ui-circle:before {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        width: 15%;
+        height: 15%;
+        background-color: $spinkit-spinner-color;
+        border-radius: 100%;
+        animation: ui-circleFadeDelay $animationDuration infinite ease-in-out both;
+    }
+    @for $i from 2 through $circleCount {
+        .ui-circle#{$i} {
+            transform: rotate(360deg / $circleCount * ($i - 1));
+        }
+    }
+    @for $i from 2 through $circleCount {
+        .ui-circle#{$i}:before {
+            animation-delay: - $animationDuration + $animationDuration / $circleCount * ($i - 1);
+        }
+    }
+}
+
+.spin-wrapper {
+    // &.square {
+    //     @include aspect(1, 1);
+    // }
+}
+
+@keyframes ui-circleFadeDelay {
+    0%,
+    39%,
+    100% {
+        opacity: 0
+    }
+    40% {
+        opacity: 1
+    }
+}
