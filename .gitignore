@@ -2,7 +2,7 @@ node_modules
 npm-debug.log
 .DS_Store
 
-public/index.html
+
 public/js
 public/fonts
 public/styles
